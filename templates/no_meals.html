@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="justify-content-center">
+      <a class="navbar-brand" href="/">MealHub</a>
+  </div>
+  <span class="navbar-text">
+    Hello, {{ fname }}
+  </span>
+  <div class="collapse navbar-collapse justify-content-end" >
+    <div class="navbar-nav">  
+      <a class="btn btn-outline-danger" href="/signout">Sign Out</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="img-wrapper">
+  <img src="/static/chopping-board.jpg" class="img-fluid" alt="chopping board image">
+  <div class="img-overlay" id="no-meals">
+    <h1 class="text-center mt-5 pt-5 mx-auto" style="width: 200px;">My Meals</h1>
+    <div class="nomealplans text-center">
+      <p>You have no meal plans yet...<p>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#newPlan">
+        Create Meal Plan
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="newPlan" tabindex="-1" role="dialog" aria-labelledby="newPlanLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newPlanLabel">Select Meal Preferences</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Form -->
+        <form action="/results" method="GET">
+                
+            <div class="form-group">
+                <label>Meal Plan Start Date</label>
+                <input type="date" class="form-control" name="start" required>
+                <!-- Need tooltip: select up to 3 -->
+                <label >Choose a cuisine<span class="oi oi-info" data-toggle="tooltip" data-placement="top" title="Select up to 3"></span></label>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="american">
+                      <label class="form-check-label">
+                        American
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="mexican">
+                      <label class="form-check-label">
+                        Mexican
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="italian">
+                      <label class="form-check-label">
+                        Italian
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="middle eastern">
+                      <label class="form-check-label">
+                        Middle Eastern
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="indian">
+                      <label class="form-check-label">
+                        Indian
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="chinese">
+                      <label class="form-check-label">
+                        Chinese
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="thai">
+                      <label class="form-check-label">
+                        Thai
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cuisine not" type="checkbox" name="cuisine" value="japanese">
+                      <label class="form-check-label">
+                        Japanese
+                      </label>
+                    </div>
+            </div>
+            
+            <div class="form-group">
+                <label>What foods do you want to avoid?</label>
+                <!-- Maybe change this to input type="text"? -->
+                    <input type="text" class="form-control" aria-describedby="avoidHelp" name="exclude" placeholder="Foods to avoid">
+                    <small id="avoidHelp" class="form-text text-muted">Enter foods in a list separated by commas.</small>
+            </div>
+
+            <div class="form-group">
+                <label>Choose your intolerances:</label>
+                <!-- Maybe change this to input type="text"? -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="intolerant" value="dairy">
+                      <label class="form-check-label">
+                        Dairy
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="intolerant" value="egg">
+                      <label class="form-check-label">
+                        Egg
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="intolerant" value="peanut">
+                      <label class="form-check-label">
+                        Peanut
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="intolerant" value="gluten">
+                      <label class="form-check-label">
+                        Gluten
+                      </label>
+                    </div>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Search For Recipes</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/saved_meals.js"></script>
+{% endblock %}

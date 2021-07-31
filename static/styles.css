@@ -1,0 +1,223 @@
+/******************* FONT STYLES *********************/
+
+h1, h2, h3, h4, h5, p, a, form, .card-title, .progress-bar, .loading{
+  font-family: 'Abel', sans-serif;
+}
+
+h1, a, .btn, .card-header, .slogan, .navbar-text{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/******************* HOMEPAGE STYLES *********************/
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 19%;
+}
+
+.subtitle {
+  color: white; 
+}
+
+#no-meals:before {
+  height: 5%;
+}
+
+#sign-in {
+  text-align: left;
+}
+
+#sign-in:before {
+  height: 0%;
+}
+
+/******************* ICON STYLES *********************/
+
+.oi-info {
+  padding-left: 10px;
+}
+
+
+
+/******************* INDIVIDUAL RECIPE CHART STYLES *********************/
+
+.nutri-chart {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.nutri-tracker {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+
+/******************* MY MEALS PAGE STYLES *********************/
+
+.nutricounter {
+  border: solid gray 1px;
+  margin-top: 1rem;
+  padding: 2rem;
+}
+
+.nutricounter-desc {
+  border-bottom: solid gray .5px;
+}
+
+.alert-msg{
+    position: fixed;
+    bottom: 5px;
+    left:2%;
+    width: 96%;
+}
+
+/******************* BUTTON & CARD STYLES *********************/
+
+.hide {
+  visibility: hidden;
+}
+
+#create {
+  visibility: hidden;
+}
+
+.card {
+  display: inline-block;
+}
+
+
+/******************* SIDEBAR STYLES *********************/
+
+#sideNav {
+  /*background-color: lightgray;*/
+  width: 280px;
+  position: fixed;
+  height: 100%;
+  border-right: lightgray solid .5px;
+}
+
+.main {
+  float: left;
+  width: 78%;  /* or 84%?? */
+  margin-left: 300px;
+}
+
+.chart-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.chart-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 25%;
+}
+
+.results-msg {
+  margin-top: 10px;
+}
+
+.mx-auto {
+  display: block;
+}
+
+.progress {
+  width: 200px;
+  margin-bottom: 20px;
+  position: absolute;
+  bottom:0;
+
+}
+
+.progress-bar {
+  width: 0%;
+}
+
+.create-btn {
+  margin-bottom: 50px;
+  position: absolute;
+  bottom:0;
+}
+
+
+@media (min-width: 1100px) {
+  .progress {
+    width: 250px;
+  }
+  #sideNav {
+    width: 280px;
+  }
+}
+
+
+/******************* FORM STYLES *********************/
+
+/*#pw-msg {
+  color: red;
+}*/
+
+
+/******************* ALERT STYLES *********************/
+
+.alert {
+  margin-top: 60px;
+}
+
+.loading {
+  visibility: hidden;
+}
+
+/******************* EXTRA/UNNEEDED? *********************/
+
+.wrapper {
+  display: flex;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed;  Fixed Sidebar (stay in place on scroll) 
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: lightgray; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+

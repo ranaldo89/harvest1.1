@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="justify-content-center">
+      <a class="navbar-brand" href="/">MealHub</a>
+  </div>
+  <span class="navbar-text">
+    Hello, {{ fname }}
+  </span>
+  <div class="collapse navbar-collapse justify-content-end" >
+    <div class="navbar-nav">
+      
+      <a class="nav-item nav-link" href="/mymeals">My Meals</a>  
+      <a class="btn btn-outline-danger" href="/signout">Sign Out</a>
+    </div>
+  </div>
+</nav>
+
+<p>{{ results }}</p>
+
+
+{% endblock %}
