@@ -26,12 +26,12 @@ app = Flask(__name__)
 app.secret_key = os.environ["APP_SECRET"]
 
 headers = {
-            "X-Mashape-Key": SPOONACULAR_KEY,
-            "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com",
+            'x-rapidapi-key': "04aafd3d1bmsh9bc5af476938181p1d4c93jsnc82a05cae2d1",
+            'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "Accept": "application/json"
             }
 
-domain_url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com"
+domain_url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search"
 
 
 ########################### Google API ############################
@@ -660,24 +660,14 @@ def make_recipe_search_request(cuisine, exclude, intolerant):
     search_url = "{}/recipes/search?".format(domain_url)
     # offset = random.randint(0, 100)
 
-    params = {
-               "number": 100,
-               # "offset": offset,
-               "query": "main course",
-               "limitLicense": False,
-               "instructionsRequired": True,
-               "type": "main course",
-               "diet": "vegetarian",
-               "intolerances": intolerant,
-               "excludeIngredients": exclude,
-               "cuisine": cuisine
-              }
-
-    response = requests.get(
-                        search_url,
-                        headers=headers,
-                        params=params
-                       )
+    querystring = {"query":"burger",
+    "diet":"vegetarian",
+    "excludeIngredients":"coconut",
+    "intolerances":"egg, gluten",
+    "number":"10","offset":"0",
+    "type":"main course"}
+              
+    response = requests.request("GET", search_url, headers=headers, params=querystring)
 
     response = response.body["results"]
     return response
